@@ -9,7 +9,7 @@ class TractDataProcessor:
         # read file
         # tract_summarized_df = pd.read_csv("/Users/knightturing/UMich/Sem5_Winter2023/SI699_project/codebase/si699-aa/resources/tract_characteristics.csv")
         all_rows = []
-        input_file = csv.DictReader(open("/Users/knightturing/UMich/Sem5_Winter2023/SI699_project/codebase/si699-aa/resources/tract_characteristics_fixed.csv"))
+        input_file = csv.DictReader(open("../../resources/tract_characteristics_fixed.csv"))
         for row in input_file:
             all_rows.append(row)
         filtered_tract_dicts = self.filter_tract_data(all_rows)
@@ -17,7 +17,7 @@ class TractDataProcessor:
 
     def serve_enriched_tract_data(self):
         all_rows = []
-        input_file = csv.DictReader(open("/Users/knightturing/UMich/Sem5_Winter2023/SI699_project/codebase/si699-aa/resources/final_tract_stats.csv"))
+        input_file = csv.DictReader(open("../../resources/final_tract_stats.csv"))
         for row in input_file:
             all_rows.append(row)
         filtered_tract_data = self.filter_enriched_tract_data(all_rows)

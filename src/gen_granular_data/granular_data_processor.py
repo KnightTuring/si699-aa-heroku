@@ -9,7 +9,7 @@ class GranularDataProcessor:
     def serve_granular_data(self):
         # for now read the file data and serve it as a list of json objects
         all_rows = []
-        input_file = csv.DictReader(open("/Users/knightturing/UMich/Sem5_Winter2023/SI699_project/codebase/si699-aa/resources/yelp_enriched_data_with_tract.csv"))
+        input_file = csv.DictReader(open("../../resources/yelp_enriched_data_with_tract.csv"))
         for row in input_file:
             all_rows.append(row)
         all_rows = self.filter_granular_data(all_rows)
@@ -17,7 +17,7 @@ class GranularDataProcessor:
 
     def serve_granular_data_for_tract(self, tract_num):
         print(f"Fetching data for tract {tract_num}")
-        df = pd.read_csv("/Users/knightturing/UMich/Sem5_Winter2023/SI699_project/codebase/si699-aa/resources/yelp_enriched_data_with_tract.csv")
+        df = pd.read_csv("../../resources/yelp_enriched_data_with_tract.csv")
         tract_data = df[df['census_tract_fips'] == int(tract_num)].to_dict(orient='records')
         print(f"Tratcf data: {tract_data}")
         all_rows = self.filter_granular_data(tract_data)
